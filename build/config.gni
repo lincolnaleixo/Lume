@@ -12,14 +12,14 @@ import("//chrome/version.gni")
 
 declare_args() {
   base_sparkle_update_url = ""
-  enable_sparkle = !is_component_build && is_mac
+  enable_sparkle = false  # Lume: no upstream binary updates.
   build_sparkle = false
 
   sparkle_dsa_private_key_file = ""
   sparkle_eddsa_private_key = ""
   sparkle_eddsa_public_key = ""
 
-  brave_product_name = "brave"
+  brave_product_name = "lume"
   brave_exe = ""
   target_android_output_format = ""
   brave_android_keystore_path = "."
@@ -167,7 +167,7 @@ if (is_win) {
   }
 
   brave_product_dir_name =
-      "BraveSoftware/Brave-$_product_brand$brave_product_dir_name_suffix"
+      "Lume/Lume$brave_product_dir_name_suffix"
 
   if (base_sparkle_update_url == "") {
     base_sparkle_update_url =
