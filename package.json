@@ -141,7 +141,7 @@
     "commander": "14.0.3",
     "copy-webpack-plugin": "14.0.0",
     "crypto-browserify": "3.12.0",
-    "css-loader": "5.2.7",
+    "css-loader": "7.1.5",
     "csstype": "2.6.21",
     "diff": "7.0.0",
     "emptykit.css": "1.0.1",
