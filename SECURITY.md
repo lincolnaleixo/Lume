@@ -1,10 +1,9 @@
-# Security Policy
+# Lume security status
 
-## Supported Versions
+Lume is experimental. It has not received an independent security audit, native browser validation or a production release. Do not use it as a primary browser, password vault or store of sensitive data yet.
 
-All versions including and above the current stable release version number (the
-version downloadable on https://brave.com/download).
+Never post device tokens, Cloudflare credentials, pairing files, recovery files, browser profiles or signing material in public issues. Before public releases, maintainers must enable a private vulnerability-reporting channel and document a response process. No private reporting channel is currently promised here.
 
-## Reporting a Vulnerability
+The original upstream security policy is preserved at `lume/docs/UPSTREAM_SECURITY.md`. Vulnerabilities in unmodified upstream Brave/Chromium code should follow upstream's reporting policy. Lume-specific defects must not be represented as defects in Brave or Cloudflare without verification.
 
-See https://hackerone.com/brave for details.
+See `lume/docs/SYNC.md` for threat-model limitations and `lume/docs/NATIVE-INTEGRATION.md` for release gates.

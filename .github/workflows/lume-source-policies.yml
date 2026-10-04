@@ -1,0 +1,38 @@
+name: Apply Lume browser source policies
+on:
+  push:
+    branches: [main]
+    paths: [lume/scripts/patch-browser.mjs]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lume-source-policies
+  cancel-in-progress: false
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve upstream documentation and apply exact source edits
+        run: |
+          set -euo pipefail
+          if [ ! -f lume/docs/UPSTREAM_README.md ]; then
+            git fetch --depth=1 origin upstream/brave-core
+            git show FETCH_HEAD:README.md > lume/docs/UPSTREAM_README.md
+            git show FETCH_HEAD:SECURITY.md > lume/docs/UPSTREAM_SECURITY.md
+          fi
+          node lume/scripts/patch-browser.mjs
+          npm --prefix lume test
+          npm --prefix lume run check
+          npm --prefix lume run verify:browser
+          git add components/brave_wallet/common/buildflags/buildflags.gni components/brave_rewards/core/buildflags/buildflags.gni components/brave_ads/buildflags/buildflags.gni components/brave_sync/features.cc components/brave_sync/BUILD.gn build/config.gni app/theme/brave/BRANDING lume/docs/UPSTREAM_README.md lume/docs/UPSTREAM_SECURITY.md
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'Lume repository automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: apply Lume branding and disable crypto and Brave Sync defaults'
+          git push origin HEAD:main

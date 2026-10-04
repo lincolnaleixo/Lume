@@ -1,0 +1,25 @@
+name: Lume checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node lume/scripts/patch-browser.mjs
+      - run: npm --prefix lume run check
+      - run: npm --prefix lume test
+      - run: npm --prefix lume run verify:browser
+      - name: Package Worker without deploying or accessing an account
+        working-directory: lume
+        env:
+          CLOUDFLARE_SEND_METRICS: 'false'
+        run: npx --yes wrangler@4.147.0 deploy --dry-run --outdir /tmp/lume-worker

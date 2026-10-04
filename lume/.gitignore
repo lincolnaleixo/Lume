@@ -1,0 +1,7 @@
+.local/
+.dev.vars*
+.env*
+.wrangler/
+node_modules/
+pairing-*.json
+vault-backup-*.json

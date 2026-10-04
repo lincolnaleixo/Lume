@@ -1,0 +1,13 @@
+{
+  "name": "@lume/self-hosted-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "setup": "node scripts/setup.mjs",
+    "check": "node --check worker/index.mjs && node --check web/core.mjs && node --check web/app.mjs",
+    "verify:browser": "node scripts/verify-browser.mjs"
+  }
+}
