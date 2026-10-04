@@ -1,0 +1,12 @@
+diff --git a/components/sync/base/BUILD.gn b/components/sync/base/BUILD.gn
+index 3dcc8f723e2b5225f4ec5ebf7743772e30c517cf..04c5be0b12d0985ad30edd80a9c810428427658a 100644
+--- a/components/sync/base/BUILD.gn
++++ b/components/sync/base/BUILD.gn
+@@ -90,6 +90,7 @@ static_library("base") {
+   ]
+ 
+   defines = [ "SYNC_USER_AGENT_PRODUCT=$sync_user_agent_product" ]
++  import("//brave/components/sync/base/sources.gni") public_deps += brave_components_sync_base_public_deps
+ }
+ 
+ fuzzer_test("unique_position_fuzzer") {

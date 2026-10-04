@@ -1,0 +1,22 @@
+diff --git a/services/network/public/cpp/features.cc b/services/network/public/cpp/features.cc
+index 88bc309a39649362f419e8ddcbfed090feae0637..e27bfbd16c8a344e3329ae36f816b522f34ea73e 100644
+--- a/services/network/public/cpp/features.cc
++++ b/services/network/public/cpp/features.cc
+@@ -275,7 +275,7 @@ BASE_FEATURE_PARAM(bool,
+ // of vulnerable local devices.
+ //
+ // Spec: https://wicg.github.io/local-network-access/
+-BASE_FEATURE(kLocalNetworkAccessChecksWebSockets,
++BASE_OVERRIDDEN_FEATURE(kLocalNetworkAccessChecksWebSockets,
+              base::FEATURE_ENABLED_BY_DEFAULT);
+ 
+ // Enables Local Network Access checks for WebTransport.
+@@ -426,7 +426,7 @@ BASE_FEATURE(kUpdateRequestForCorsRedirect, base::FEATURE_ENABLED_BY_DEFAULT);
+ 
+ // https://github.com/patcg-individual-drafts/topics
+ // Kill switch for the Topics API.
+-BASE_FEATURE(kBrowsingTopics, base::FEATURE_ENABLED_BY_DEFAULT);
++BASE_OVERRIDDEN_FEATURE(kBrowsingTopics, base::FEATURE_DISABLED_BY_DEFAULT);
+ 
+ 
+ BASE_FEATURE(kIncreaseCookieAccessCacheSize, base::FEATURE_ENABLED_BY_DEFAULT);

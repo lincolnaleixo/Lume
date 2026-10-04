@@ -1,0 +1,24 @@
+diff --git a/ui/color/BUILD.gn b/ui/color/BUILD.gn
+index 51bead4a5c3aab3496782b24b3853cc0342f0cd3..5008828c7b50d6e287691b30abfacf8bebd8551b 100644
+--- a/ui/color/BUILD.gn
++++ b/ui/color/BUILD.gn
+@@ -96,6 +96,9 @@ component("color") {
+     ]
+     deps += [ ":ui_color_jni_headers" ]
+   }
++  import("//brave/ui/color/sources.gni")
++  sources += brave_ui_color_sources
++  public_deps += brave_ui_color_public_deps
+ }
+ 
+ source_set("test_support") {
+@@ -214,6 +217,9 @@ component("mixers") {
+       "android/sys_color_mixer_android.h",
+     ]
+   }
++  import("//brave/ui/color/sources.gni")
++  sources += brave_ui_color_mixer_sources
++  public_deps += brave_ui_color_mixer_public_deps
+ }
+ 
+ if (is_android) {

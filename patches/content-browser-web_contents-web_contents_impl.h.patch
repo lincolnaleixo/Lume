@@ -1,0 +1,13 @@
+diff --git a/content/browser/web_contents/web_contents_impl.h b/content/browser/web_contents/web_contents_impl.h
+index e0e8ed566bbf240308e03cf1f924fd1bdb877571..1b2a1d121b9ea7baa1e0f427692eb186c6d680a3 100644
+--- a/content/browser/web_contents/web_contents_impl.h
++++ b/content/browser/web_contents/web_contents_impl.h
+@@ -1708,6 +1708,8 @@ class CONTENT_EXPORT WebContentsImpl
+   // base::trace_event::TraceSessionObserver implementation:
+   void OnStart(const perfetto::DataSourceBase::StartArgs&) override;
+ 
++  bool GetShouldDoLearningForTesting() override;
++
+  private:
+   using FrameTreeIterationCallback = base::FunctionRef<void(FrameTree&)>;
+   using RenderViewHostIterationCallback =
