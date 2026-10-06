@@ -305,8 +305,8 @@ importers:
         specifier: 3.12.0
         version: 3.12.0
       css-loader:
-        specifier: 5.2.7
-        version: 5.2.7(webpack@5.105.0)
+        specifier: 7.1.5
+        version: 7.1.5(webpack@5.105.0)
       csstype:
         specifier: 2.6.21
         version: 2.6.21
@@ -3826,18 +3826,24 @@ packages:
     resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     deprecated: Active development of CryptoJS has been discontinued. This library is no longer maintained.
 
-  css-loader@5.2.7:
-    resolution: {integrity: sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      webpack: ^4.27.0 || ^5.0.0
-
   css-loader@6.11.0:
     resolution: {integrity: sha512-CTJ+AEQJjq5NzLga5pE39qdiSV56F8ywCIsqNIRF0r7BDgWsN25aazToqAFg7ZrtA/U016xudB3ffgweORxX7g==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       '@rspack/core': 0.x || 1.x
       webpack: ^5.0.0
+    peerDependenciesMeta:
+      '@rspack/core':
+        optional: true
+      webpack:
+        optional: true
+
+  css-loader@7.1.5:
+    resolution: {integrity: sha512-Q7iAfQkU2twNBryKX/vGAlE+GAmkF7quhSzAGNK8fBimxk3+tqg245rH52UPb9dioBolBc8rP0ihmHBaDTJQBA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      '@rspack/core': 0.x || ^1.0.0 || ^2.0.0-0
+      webpack: ^5.27.0
     peerDependenciesMeta:
       '@rspack/core':
         optional: true
@@ -12326,20 +12332,6 @@ snapshots:
 
   crypto-js@4.2.0: {}
 
-  css-loader@5.2.7(webpack@5.105.0):
-    dependencies:
-      icss-utils: 5.1.0(postcss@8.5.23)
-      loader-utils: 2.0.4
-      postcss: 8.5.23
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.23)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.23)
-      postcss-modules-scope: 3.2.1(postcss@8.5.23)
-      postcss-modules-values: 4.0.0(postcss@8.5.23)
-      postcss-value-parser: 4.2.0
-      schema-utils: 3.3.0
-      semver: 7.6.2
-      webpack: 5.105.0(esbuild@0.28.1)(uglify-js@3.19.3)(webpack-cli@5.1.4)
-
   css-loader@6.11.0(webpack@5.105.0):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.23)
@@ -12350,6 +12342,19 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.5.23)
       postcss-value-parser: 4.2.0
       semver: 7.6.2
+    optionalDependencies:
+      webpack: 5.105.0(esbuild@0.28.1)(uglify-js@3.19.3)(webpack-cli@5.1.4)
+
+  css-loader@7.1.5(webpack@5.105.0):
+    dependencies:
+      icss-utils: 5.1.0(postcss@8.5.23)
+      postcss: 8.5.23
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.23)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.23)
+      postcss-modules-scope: 3.2.1(postcss@8.5.23)
+      postcss-modules-values: 4.0.0(postcss@8.5.23)
+      postcss-value-parser: 4.2.0
+      semver: 7.8.5
     optionalDependencies:
       webpack: 5.105.0(esbuild@0.28.1)(uglify-js@3.19.3)(webpack-cli@5.1.4)
 
@@ -12828,7 +12833,7 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@9.39.2(jiti@1.21.7)(supports-color@8.1.1)):
     dependencies:
       eslint: 9.39.2(jiti@1.21.7)(supports-color@8.1.1)
-      semver: 7.8.5
+      semver: 7.6.2
 
   eslint-config-love@149.0.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@1.21.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@1.21.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3):
     dependencies:
